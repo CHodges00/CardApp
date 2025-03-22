@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trading Card Inventory</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+    <h1>Welcome to Trading Card Inventory</h1>
+    <div class="home-links">
+        <a th:href="@{/s}">🔍 Search Cards</a>
+        <a th:href="@{/a}">➕ Add Cards</a>
+        <a th:href="@{/b}">🏷️ Add Brands</a>
+        <a th:href="@{/y}">📅 Add Years</a>
+    </div>
+
+    <script th:src="@{/main.js}"></script>
+</body>
+</html>

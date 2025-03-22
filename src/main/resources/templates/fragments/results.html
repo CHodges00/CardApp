@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="resultsFragment">
+        <!-- Table displaying card data -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Card Number</th>
+                    <th>Card Name</th>
+                    <th>Brand</th>
+                    <th>Quantity</th>
+                    <th>Year</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through the cards and display them -->
+                <tr th:each="card : ${cards}">
+                    <td th:text="${card.team}"></td>
+                    <td th:text="${card.cardNumber}"></td>
+                    <td th:text="${card.playerName}"></td>
+                    <td th:text="${card.brand.name}"></td>
+                    <td th:text="${card.qty}"></td>
+                    <td th:text="${card.year.year}"></td>
+                    <td th:text="${card.value}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Pagination Controls -->
+        <div class="pagination">
+            <!-- Show previous button if there's a previous page -->
+            <a th:if="${hasPrev}" th:href="@{/searchCards(page=${currentPage - 1}, size=10)}">⏪ Previous</a>
+            
+            <!-- Display current page number -->
+            <span>Page <span th:text="${currentPage + 1}"></span> of <span th:text="${totalPages}"></span></span>
+            
+            <!-- Show next button if there's a next page -->
+            <a th:if="${hasNext}" th:href="@{/searchCards(page=${currentPage + 1}, size=10)}">Next ⏩</a>
+        </div>
+    </div>
+</body>
+</html>

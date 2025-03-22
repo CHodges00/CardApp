@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+    <div th:if="${homeReturn}">
+        <button onclick="window.location.href='/cardApp'">Home</button>
+    </div>
+    <div th:if="${cardReturn}">
+        <button onclick="window.location.href='/a'">Back to Add Card</button>
+    </div>
+    <div th:if="${brandReturn}">
+        <button onclick="window.location.href='/b'">Back to Add Brand</button>
+    </div>
+    <div th:if="${yearReturn}">
+        <button onclick="window.location.href='/y'">Back to Add Year</button>
+    </div>
+
+    <p id="errorMessage" th:if="${message}" th:text="${message}"></p>
+    
+    <script th:src="@{/main.js}"></script>
+</body>
+</html>

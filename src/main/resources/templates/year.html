@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Years</title>
+        <link rel="stylesheet" th:href="@{/main.css}">
+    </head>
+    <body>
+        <button onclick="window.location.href='/cardapp'">Home</button>
+        <h1>Add a New Year</h1>
+
+        <form th:action="@{/addYear}" method="post" th:object="${year}" id="addYearForm" oninput="validateAddYearForm()">
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" th:field="*{year}" required />
+
+            <button type="button" id="submitButton" onclick="return confirmAddYear(event)" disabled>Add Year</button>
+        </form>
+
+        <script th:src="@{/main.js}"></script>
+    </body>
+</html>
